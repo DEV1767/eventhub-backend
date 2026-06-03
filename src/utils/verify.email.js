@@ -22,14 +22,13 @@ export const verifyOTP = async (req, res) => {
             });
         }
 
-        // Compare OTP (Redis automatically handles expiration)
         if (storedOtp !== otp) {
             return res.status(400).json({
                 message: "Invalid OTP"
             });
         }
 
-        // Clear OTP from Redis after successful verification
+       
         await clearOTP(email);
         
         res.status(200).json({

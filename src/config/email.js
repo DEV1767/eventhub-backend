@@ -12,12 +12,12 @@ const transporter = nodemailer.createTransport({
     family: 4
 });
 
-// ✅ Verify connection on startup
+//  Verify connection on startup
 transporter.verify((error, success) => {
     if (error) {
-        console.error('❌ SMTP Connection Error:', error);
+        console.error(' SMTP Connection Error:', error);
     } else {
-        console.log('✅ SMTP Server is ready to send emails');
+        console.log(' SMTP Server is ready to send emails');
     }
 });
 

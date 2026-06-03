@@ -25,7 +25,7 @@ const Registrationschema = new mongoose.Schema({
         default: "Confirmed"
     },
 
-    // 🔥 Payment Fields
+    //  Payment Fields
     paymentProofUrl: {
         type: String,
         default: null

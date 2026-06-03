@@ -27,9 +27,13 @@ export const createeventschema = joi.object({
     venue: joi.string().optional(),
     maxTeams: joi.number().min(1).optional(),
     prize: joi.string().optional(),
-    description: joi.string().optional()
-
-})
+    description: joi.string().optional(),
+    paymentMode: joi.string().optional(),
+    registrationFee: joi.number().min(0).optional(),
+    fee: joi.number().min(0).optional(),
+    organizerName: joi.string().optional(),
+    upiId: joi.string().optional()
+}).unknown(true)
 
 export const registerevent = joi.object({
     teamname: joi.string()

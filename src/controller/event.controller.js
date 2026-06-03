@@ -12,6 +12,14 @@ import { cacheEventRules, cacheEventInfo } from "../utils/redisHelper.js";
 //create_Event
 export const Createevent = async (req, res) => {
     try {
+        // Defensive check
+        if (!req.body) {
+            return res.status(400).json({
+                success: false,
+                message: "Request body is required. Ensure Content-Type header is set to application/json"
+            });
+        }
+
         const {
             name,
             type,
