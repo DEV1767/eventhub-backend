@@ -37,12 +37,19 @@ app.get("/Ping", (req, res) => {
 });
 
 // Routes
+//auth routes
 app.use("/api/v1/auth", authRoutes);
+//event-managment routes(reg.,del.,update)
 app.use("/api/v1/events", eventRoutes);
+//teams routes
 app.use("/api/v1/teams", teamRoutes);
+//schedule-routes
 app.use("/api/v1/schedule", scheduleRoutes);
+//user routes
 app.use("/api/v1/user", userRoutes);
+//upload payment image
 app.use("/api/v1/upload", uploadRoutes)
+//payments routes
 app.use("/api/v1/payment", paymentRoutes)
 
 export default app;

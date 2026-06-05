@@ -6,6 +6,8 @@ import { cacheOTP, getOTP, clearOTP } from "./redisHelper.js";
 
 const generateSecureOTP = () => crypto.randomInt(100000, 999999).toString();
 
+
+
 //  SEND OTP FOR LOGIN
 /*export const sendOTPlogin = async (req, res) => {
     try {
@@ -50,6 +52,8 @@ const generateSecureOTP = () => crypto.randomInt(100000, 999999).toString();
         res.status(500).json({ success: false, message: "Internal server issue" });
     }
 };*/
+
+
 
 // SEND OTP FOR SIGNUP 
 export const sendOTPsignup = async (req, res) => {
