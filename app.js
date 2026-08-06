@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 app.use(cookieParser());
 app.use(
     cors({
-        origin: "http://localhost:5500",
+        origin: "https://eduhub-eta-coral.vercel.app",
         credentials: true
     })
 );
@@ -46,6 +46,7 @@ app.get("/",(req,res)=>{
 })
 
 // Routes
+
 //auth routes
 app.use("/api/v1/auth", authRoutes);
 //event-managment routes(reg.,del.,update)
