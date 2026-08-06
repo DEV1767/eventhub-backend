@@ -1,28 +1,36 @@
 import { createClient } from "redis";
 
-
 const redisClient = createClient({
     url: process.env.REDIS_URL,
     socket: {
         tls: true,
         rejectUnauthorized: false
     }
-})
+});
 
 redisClient.on("error", (err) => {
-    console.log("Redis Error:", err)
-})
-
+    console.error("Redis Error:", err);
+});
 
 export const connectRedis = async () => {
+    
+    if (redisClient.isOpen) {
+        return redisClient;
+    }
+
     try {
         await redisClient.connect();
-        console.log("Redis Connected")
+
+        console.log("Redis Connected");
+
+        return redisClient;
+
     } catch (error) {
-        console.log("Redis failed", error.message)
+        console.error("Redis connection failed:", error.message);
+
+        // IMPORTANT: don't hide the error
+        throw error;
     }
-}
-
-
+};
 
 export default redisClient;
