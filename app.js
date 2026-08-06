@@ -7,7 +7,6 @@ import eventRoutes from "./src/routes/event.route.js";
 import teamRoutes from "./src/routes/teams.routes.js"
 import scheduleRoutes from "./src/routes/schedule.route.js"
 import userRoutes from "./src/routes/user.routes.js"
-import { requestLogger } from "./src/middleware/logger.middleware.js";
 import { responseFormatterMiddleware } from "./src/middleware/responseFormatter.middleware.js";
 import uploadRoutes from "./src/routes/upload.route.js"
 import paymentRoutes from "./src/routes/payment.route.js"
@@ -27,8 +26,6 @@ app.use(
 );
 
 
-//request log(middleware)
-app.use(requestLogger);
 //response(middleware)
 app.use(responseFormatterMiddleware);
 
