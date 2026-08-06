@@ -83,9 +83,8 @@ export const getevent = async (req, res) => {
 
         // Base filter - always filter by college
         const filter = {
-            collegename: req.user.collegename
+            collegename: req.user.collegename.toLowerCase()
         };
-
         // Search by event name
         if (search) {
             filter.name = { $regex: search, $options: "i" };
@@ -386,3 +385,22 @@ export const getEventRemainingDays = async (req, res) => {
         });
     }
 };
+
+//For home page 
+export const globalevent = async (req, res) => {
+    try {
+        const events = await Event.find({})
+
+        return res.status(200).json({
+            success: true,
+            events
+        })
+    } catch (error) {
+        console.error("Get events error:", error);
+
+        return res.status(500).json({
+            success: false,
+            message: "Failed to fetch events"
+        });
+    }
+}
