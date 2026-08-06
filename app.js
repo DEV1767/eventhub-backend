@@ -29,9 +29,21 @@ app.use(
 //response(middleware)
 app.use(responseFormatterMiddleware);
 
+
+//favicon resolver
+app.get("/favicon.ico", (req, res) => {
+    res.status(204).end();
+});
+
+//Test route
 app.get("/Ping", (req, res) => {
     res.send("PONG");
 });
+
+//test route 2 
+app.get("/",(req,res)=>{
+    res.send("Server is running.")
+})
 
 // Routes
 //auth routes
