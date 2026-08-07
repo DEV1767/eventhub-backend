@@ -19,6 +19,11 @@ export const uploadImageLimiter = rateLimit({
     }
 });
 
+
+
+
+
+
 router.post("/",uploadImageLimiter, upload.single("image"), authMiddleware, authorized("Student"),uploadupiimage)
 
 export default router;

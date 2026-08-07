@@ -43,6 +43,9 @@ export const updatePasswordLimiter = rateLimit({
     }
 });
 
+
+
+
 router.get("/me", getUserLimiter, authMiddleware, getuser);
 
 router.put("/updateme", updateProfileLimiter, authMiddleware, updateme);

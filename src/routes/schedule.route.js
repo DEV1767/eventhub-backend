@@ -59,6 +59,10 @@ export const deleteScheduleLimiter = rateLimit({
     }
 });
 
+
+
+
+
 router.post("/:eventId", createScheduleLimiter, authMiddleware, authorized("Organiser", "Faculty"), validate(Schedulevalidator), addslot);
 
 router.get("/:eventId", getScheduleLimiter, authMiddleware, getschedule);

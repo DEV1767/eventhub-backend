@@ -20,6 +20,8 @@ export const uploadLimiter = rateLimit({
     }
 });
 
+
+
 router.post("/:regId", uploadLimiter, upload.single("image"), authMiddleware, UpiPaymentProof);
 router.put("/:regid/approve",authMiddleware, authorized("Organiser", "Faculty"), approveupiPayment);
 router.put("/:regid/reject", authMiddleware, authorized("Organiser", "Faculty"), rejectupiPayment);

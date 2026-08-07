@@ -22,7 +22,7 @@ const app = express();
 //auth APi-limiter
 export const authLimiter = rateLimit({
     windowMs: 7 * 60 * 1000,
-    limit: 5,
+    limit: 10,
     standardHeaders: "draft-8",
     legacyHeaders: false,
     ipv6Subnet: 56,

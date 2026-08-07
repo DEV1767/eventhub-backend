@@ -145,6 +145,10 @@ export const cancelRegistrationLimiter = rateLimit({
     }
 });
 
+
+
+
+
 // Specific routes MUST come before generic parameter routes
 router.post("/register", createLimiter, authMiddleware, validate(registerevent), registerteam);
 

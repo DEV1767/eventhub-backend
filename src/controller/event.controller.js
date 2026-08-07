@@ -76,7 +76,7 @@ export const Createevent = async (req, res) => {
     }
 };
 
-//get_all_event(Ai-help)
+//get_event(Ai-help)
 export const getevent = async (req, res) => {
     try {
         const { search, type, status, startDate, endDate, page, limit } = req.query;

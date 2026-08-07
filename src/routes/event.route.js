@@ -57,6 +57,8 @@ export const deleteLimiter = rateLimit({
     }
 });
 
+
+
 //routes
 router.post("/", createLimiter, authMiddleware, authorized("Organiser", "Faculty"), validate(createeventschema), Createevent);
 
