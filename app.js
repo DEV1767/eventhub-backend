@@ -71,7 +71,7 @@ app.get("/", (req, res) => {
 
 // API routes
 
-app.use(authLimiter)
+
 app.use("/api/v1/auth",authRoutes);
 app.use("/api/v1/events",eventRoutes);
 app.use("/api/v1/teams",teamRoutes);
