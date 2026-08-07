@@ -66,4 +66,5 @@ router.get("/:eventId", getScheduleLimiter, authMiddleware, getschedule);
 router.put("/:eventId/:slotId", updateScheduleLimiter, authMiddleware, authorized("Organiser", "Faculty"), validate(Schedulevalidator), updateslot);
 
 router.delete("/:eventId/:slotId", deleteScheduleLimiter, authMiddleware, authorized("Organiser", "Faculty"), deleteslot);
+
 export default router

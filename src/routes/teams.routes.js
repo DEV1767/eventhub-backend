@@ -121,4 +121,6 @@ router.get("/:id/teams", readLimiter, authMiddleware, authorized("Organiser", "F
 router.get("/checkregistration/:eventId", readLimiter, authMiddleware, checkregistration);
 
 router.delete("/:tid", deleteLimiter, authMiddleware, authorized("Organiser", "Faculty"), cancleregistration);
+
+
 export default router

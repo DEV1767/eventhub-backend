@@ -24,3 +24,5 @@ router.post("/:regId", uploadLimiter, upload.single("image"), authMiddleware, Up
 router.put("/:regid/approve",authMiddleware, authorized("Organiser", "Faculty"), approveupiPayment);
 router.put("/:regid/reject", authMiddleware, authorized("Organiser", "Faculty"), rejectupiPayment);
 router.get("/:regid/getstatus", authMiddleware, authorized("Organiser", "Faculty", "Student"), getpaymentstatus);
+
+export default router

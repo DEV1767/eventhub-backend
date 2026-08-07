@@ -15,7 +15,7 @@ export const uploadImageLimiter = rateLimit({
     ipv6Subnet: 56,
     message: {
         success: false,
-        message: "📸 Too many image uploads! Give our server a little break."
+        message: " Too many image uploads! Give our server a little break."
     }
 });
 
