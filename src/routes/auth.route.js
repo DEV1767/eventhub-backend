@@ -51,7 +51,7 @@ export const getMeLimiter = rateLimit({
 
 // Public routes
 router.post("/signup", signupLimitter, registerUser);
-router.post("/login", loginUser, loginUser);
+router.post("/login",LoginLimiter, loginUser);
 router.post("/refresh", refreshAccessToken)
 //router.post("/send-otp/login", sendOTPlogin)
 router.post("/send-otp/signup", sendOTPsignup)
