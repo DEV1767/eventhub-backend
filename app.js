@@ -19,18 +19,6 @@ import { responseFormatterMiddleware } from "./src/middleware/responseFormatter.
 const app = express();
 
 
-//auth APi-limiter
-export const authLimiter = rateLimit({
-    windowMs: 7 * 60 * 1000,
-    limit: 10,
-    standardHeaders: "draft-8",
-    legacyHeaders: false,
-    ipv6Subnet: 56,
-    message: {
-        success: false,
-        message: "Too many login attempts. Please try again after 7 minutes."
-    }
-});
 
 // Basic middlewares
 app.use(helmet())
@@ -76,7 +64,7 @@ app.get("/favicon.ico", (req, res) => {
 });
 
 
-app.get("/",authLimiter, (req, res) => {
+app.get("/", (req, res) => {
     res.send("Server is running.");
 });
 
@@ -84,7 +72,7 @@ app.get("/",authLimiter, (req, res) => {
 // API routes
 
 app.use(authLimiter)
-app.use("/api/v1/auth", authLimiter,authRoutes);
+app.use("/api/v1/auth",authRoutes);
 app.use("/api/v1/events",eventRoutes);
 app.use("/api/v1/teams",teamRoutes);
 app.use("/api/v1/schedule", scheduleRoutes);
