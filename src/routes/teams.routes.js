@@ -17,6 +17,46 @@ const commonOptions = {
     ipv6Subnet: 56,
 };
 
+export const createLimiter = rateLimit({
+    ...commonOptions,
+    windowMs: 15 * 60 * 1000,
+    limit: 10,
+    message: {
+        success: false,
+        message: "Slow down! Creating too many events isn't allowed."
+    }
+});
+
+export const updateLimiter = rateLimit({
+    ...commonOptions,
+    windowMs: 15 * 60 * 1000,
+    limit: 30,
+    message: {
+        success: false,
+        message: "Too many updates. Give the server a small break."
+    }
+});
+
+export const readLimiter = rateLimit({
+    ...commonOptions,
+    windowMs: 15 * 60 * 1000,
+    limit: 250,
+    message: {
+        success: false,
+        message: "You're browsing events a little too enthusiastically 😂"
+    }
+});
+
+export const deleteLimiter = rateLimit({
+    ...commonOptions,
+    windowMs: 15 * 60 * 1000,
+    limit: 10,
+    message: {
+        success: false,
+        message: "Deleting events like Thanos? 🫰 Slow down."
+    }
+});
+
 // Register Team
 export const registerTeamLimiter = rateLimit({
     ...commonOptions,
